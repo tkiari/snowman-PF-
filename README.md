@@ -1,24 +1,28 @@
-# README
+# <snowman>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+### サイトテーマ
+<より良いウィンタースポーツSNS>
 
-Things you may want to cover:
+### テーマを選んだ理由
+<ウィンタースポーツをしている人なら、皆一度は現在のゲレンデの情報などを探すのに苦労した経験があると思います。スキー、スノーボード場などの名前を検索し、積雪情報などを一々確認する必要があります。シーズン中の何月何日にどのスキー場でより良い積雪、または雪質などの評価が一目でわかれば自分の行きたいゲレンデがどうゆう状況なのか、より充実したシーズンを過ごせると考えました。>
 
-* Ruby version
+### ターゲットユーザ
+<ウィンタースポーツをしている、中、上級者>
 
-* System dependencies
+### 主な利用シーン
+<ウィンタースポーツを通して友達を作りたい時、行きたいゲレンデ情報を口コミからほぼリアルタイムで確認したい時。>
 
-* Configuration
+## 設計書
+<>
 
-* Database creation
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。

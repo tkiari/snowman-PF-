@@ -1,2 +1,27 @@
-<h1>Public::Posts#show</h1>
-<p>Find me in app/views/public/posts/show.html.erb</p>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+   <%= render 'side', user: @user, post: @post1 %>
+    <div class="col-md-8 offset-md-1">
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>image</td>
+            <td><%= @post.user.name %></td>
+            <td><%= @post.title %></td>
+            <td><%= @post.opinion %></td>
+            <td>
+              <% if @post.user == current_user %>
+               <%= link_to "Edit",edit_public_post_path(@post), class: "btn btn-sm btn-success" %>
+              <% end %>
+            </td>
+            <td>
+              <% if @post.user == current_user %>
+               <%= link_to "Destroy",public_post_path(@post),method: :delete, class: "btn btn-sm btn-danger" %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

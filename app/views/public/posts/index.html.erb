@@ -8,7 +8,7 @@
           <tr>
             <td>
             <%= link_to public_user_path(post.user) do %>
-              image
+              <%= image_tag post.get_post_image(100,100) %>
             <% end %>
             </td>
             <td><%= link_to post.title, public_post_path(post.id) %></td>

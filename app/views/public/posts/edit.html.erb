@@ -13,6 +13,10 @@
     <% end %>
         <%= form_with model: @post,url: public_post_path do |f| %>
         <div class="form-group">
+          <p>Image</p>
+          <%= f.file_field :post_image, placeholder: "post-image", accept: "image/*" %>
+        </div>
+        <div class="form-group">
           <p>Title</p>
           <%= f.text_field :title, class: "form-control post_title" %>
         </div>

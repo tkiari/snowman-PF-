@@ -5,7 +5,7 @@
       <table class="table">
         <tbody>
           <tr>
-            <td>image</td>
+            <td><%= image_tag @post.get_post_image(100,100) %></td>
             <td><%= @post.user.name %></td>
             <td><%= @post.title %></td>
             <td><%= @post.opinion %></td>

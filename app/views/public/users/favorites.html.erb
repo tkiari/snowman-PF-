@@ -1,0 +1,19 @@
+いいね一覧
+<% @favorite_posts.each do |post| %>
+ <%= link_to public_user_path(post.user_id) do%>
+ <%= image_tag post.get_post_image(100,100) %>
+ <% end %>
+<%= link_to post.title, public_post_path(post.id) %>
+<%= post.opinion %>
+  <% if post.favorited_by?(current_user) %>
+   <%= link_to public_post_favorites_path(post), method: :delete do %>
+    ♥<%= post.favorites.count %> いいね
+   <% end %>
+  <% else %>
+   <%= link_to public_post_favorites_path(post), method: :post do %>
+    ♡<%= post.favorites.count %> いいね
+   <% end %>
+  <% end %>
+<% end %>
+
+<%= link_to '前のページに戻る', :back %>

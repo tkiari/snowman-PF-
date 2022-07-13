@@ -1,7 +1,12 @@
 class Post < ApplicationRecord
   belongs_to :user
+  has_many :favorites, dependent: :destroy
   has_one_attached :image
   has_one_attached :post_image
+  
+  def favorited_by?(user)
+    favorites.exists?(user_id: user.id)
+  end
 
   def get_post_image(width,height)
     unless post_image.attached?

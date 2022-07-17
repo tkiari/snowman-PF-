@@ -26,6 +26,7 @@
           <% end %>
           </td>
           <td><%= link_to "Show", public_user_path(user.id) %></td>
+          <td><%= link_to "チャットする", public_user_chat_path(current_user.id, user.id) %></td>
          </tr>
          <% end %>
         </tbody>

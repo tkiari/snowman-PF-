@@ -1,0 +1,45 @@
+<div class="container mt-5">
+  <h2><%= @user.name %>さんとのチャット</h2>
+  <hr>
+<!--class=messageにappendする-->
+  <table class="message table">
+    <thead>
+      <tr>
+        <th>投稿者名</th>
+        <th>メッセージ</th>
+      </tr>
+    </thead>
+
+    <tbody>
+     <div class="message">
+      <% @chats.each do |chat| %>
+        <tr>
+          <% if chat.user_id == current_user.id %>
+          <th><%= chat.user.name %></th>
+          <th><%= chat.message %></th>
+          <% else %>
+          <th><%= chat.user.name %></th>
+          <th><%= chat.message %></th>
+          <% end %>
+        </tr>
+      <% end %>
+     </div>
+    </tbody>
+
+  </table>
+
+  <div class="errors">
+   <%= render "layouts/errors", obj: @chat %>
+  </div>
+
+  <div class="row mt-5">
+   <!--非同期通信-->
+    <%= form_with model: @chat, url: public_user_chats_path(current_user.id), data: {remote: true} do |f| %>
+      <%= f.text_field :message %>
+      <%= f.hidden_field :room_id %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+
+  <%= link_to 'User一覧へ戻る', public_users_path , class:"btn btn-success mt-3"%>
+</div>

@@ -4,6 +4,13 @@ class Public::UsersController < ApplicationController
     @users = User.all
     @user = User.find(current_user.id)
     @post = Post.new
+    #フォロー一覧
+    @users1 = @user.followings
+    #フォロワー一覧
+    @users2 = @user.followers
+    #いいね一覧
+    favorites = Favorite.where(user_id: @user.id).pluck(:post_id)
+    @favorite_posts = Post.find(favorites)
   end
 
   def show
@@ -11,6 +18,14 @@ class Public::UsersController < ApplicationController
     @posts = @finduser.posts
     @user = User.find(current_user.id)
     @post = Post.new
+    #フォロー一覧
+    @users1 = @finduser.followings
+    #フォロワー一覧
+    @users2 = @finduser.followers
+    #いいね一覧
+    favorites = Favorite.where(user_id: @finduser.id).pluck(:post_id)
+    @favorite_posts = Post.find(favorites)
+    
   end
 
   def edit

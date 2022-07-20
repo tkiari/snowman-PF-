@@ -1,42 +1,28 @@
   <div class="container px-5 px-sm-0">
     <div class="row">
       <%= render 'public/posts/side', user: @finduser, post: @post %>
-      <div class="col-md-8 offset-md-1">
-        <table class="table table-hover table-inverse">
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Opinion</th>
-              <th colspan="3"></th>
-            </tr>
-          </thead>
-          <tbody>
-           <% @posts.each do |post| %>
-            <tr>
-              <td>
-              <%= link_to public_user_path(post.user_id) do%>
-                <%= image_tag post.get_post_image(100,100) %>
-              <% end %>
-              </td>
-              <td><%= link_to post.title, public_post_path(post.id) %></td>
-              <td><%= post.opinion %></td>
-              <% if post.favorited_by?(current_user) %>
-              <td>
-                <%= link_to public_post_favorites_path(post), method: :delete do %>
-                ♥<%= post.favorites.count %> いいね
-                <% end %>
-              </td>
-              <% else %>
-              <td>
-                <%= link_to public_post_favorites_path(post), method: :post do %>
-                ♡<%= post.favorites.count %> いいね
-                <% end %>
-              </td>
-              <% end %>
-            </tr>
-           <% end %>
-          </tbody>
-        </table>
-      </div>
+    <div class="col-md-8 offset-md-1">
+
+     <ul class="nav nav-tabs">
+      <li class="active"><a class="nav-link" href="#post" data-toggle="tab">投稿</a></li>
+      <li class="nav-item"><a class="nav-link" href="#follower" data-toggle="tab">フォロワー一覧</a></li>
+      <li class="nav-item"><a class="nav-link" href="#follow" data-toggle="tab">フォロー一覧</a></li>
+      <li class="nav-item"><a class="nav-link" href="#favorite" data-toggle="tab">いいね一覧</a></li>
+     </ul>
+     <div class="tab-content">
+     <div class="tab-pane fade" id="post">
+     <%= render 'public/users/show', posts: @posts %>
+     </div>
+     <div class="tab-pane fade" id="follower">
+     <%= render 'public/relationships/follow_list', users: @users2 %>
+     </div>
+     <div class="tab-pane fade" id="follow">
+     <%= render 'public/relationships/follow_list', users: @users1 %>
+     </div>
+     <div class="tab-pane fade" id="favorite">
+     <%= render 'public/users/favorites', favorite_posts: @favorite_posts %>
+     </div>
+     </div>
+    </div>
     </div>
   </div>

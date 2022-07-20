@@ -12,9 +12,14 @@
 
   <body>
     <header>
-      <%= render "layouts/serach" %>
-      <%= link_to "ログアウト", destroy_user_session_path,method: :delete, class: "btn btn-outline-primary" %>
+      <%= render "layouts/header" %>
+      <div class="">
+        <%= render "layouts/serach" %>
+      </div>
     </header>
     <%= yield %>
+    <footer>
+      <%= render "layouts/footer" %>
+    </footer>
   </body>
 </html>

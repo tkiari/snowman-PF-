@@ -1,0 +1,50 @@
+
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <h5 class="text-white h4">Menu</h5>
+            <% if user_signed_in? %>
+            <li class="nav-item mr-3">
+              <%= link_to "マイページ", public_user_path(current_user), class: 'btn btn-sm btn-outline-secondary nav-link text-white' %>
+            </li>
+            <li class="nav-item mr-3">
+              <%= link_to "投稿一覧", public_posts_path, class: 'btn btn-sm btn-outline-secondary nav-link text-white' %>
+            </li>
+            <li class="nav-item mr-3">
+              <%= link_to "ユーザー一覧", public_users_path, class: 'btn btn-sm btn-outline-secondary nav-link text-white' %>
+            </li>
+            <li class="nav-item mr-3">
+              <%= link_to "ログアウト", destroy_user_session_path,method: :delete, class: 'btn btn-sm btn-outline-secondary nav-link text-white' %>
+            </li>
+            <% elsif admin_signed_in? %>
+            <li class="nav-item mr-3">
+              <%= link_to "TOP", admin_root_path, class: 'btn btn-sm btn-outline-secondary nav-link text-white' %>
+            </li>
+            <li class="nav-item mr-3">
+              <%= link_to "ユーザー一覧", admin_users_index_path, class: 'btn btn-sm btn-outline-secondary nav-link text-white' %>
+            </li>
+            <li class="nav-item mr-3">
+              <%= link_to "投稿一覧", public_posts_index_path, class: 'btn btn-sm btn-outline-secondary nav-link text-white' %>
+            </li>
+            <% else %>
+            <li class="nav-item mr-3">
+              <%= link_to "TOP", public_root_path, class: 'btn btn-sm btn-outline-secondary nav-link text-white' %>
+            </li>
+            <li class="nav-item mr-3">
+              <%= link_to "About", public_homes_about_path, class: 'btn btn-sm btn-outline-secondary nav-link text-white' %>
+            </li>
+            <li class="nav-item mr-3">
+              <%= link_to "新規登録", new_user_registration_path, class: 'btn btn-sm btn-outline-secondary nav-link text-white' %>
+            </li>
+            <li class="nav-item mr-3">
+              <%= link_to "ログイン", new_user_session_path, class: 'btn btn-sm btn-outline-secondary nav-link text-white' %>
+            </li>
+            <% end %>
+    </div>
+  </div>
+  <nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+</div>

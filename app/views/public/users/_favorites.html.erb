@@ -1,10 +1,17 @@
-いいね一覧
+
+<table class="table">
+ <tbody>
 <% favorite_posts.each do |post| %>
+<tr>
+ <td>
  <%= link_to public_user_path(post.user_id) do%>
  <%= image_tag post.get_post_image(100,100) %>
  <% end %>
-<%= link_to post.title, public_post_path(post.id) %>
-<%= post.opinion %>
+ </td>
+ <td><%= link_to post.title, public_post_path(post.id) %></td>
+ <td><%= post.opinion %></td>
+
+ <td>
   <% if post.favorited_by?(current_user) %>
    <%= link_to public_post_favorites_path(post), method: :delete do %>
     ♥<%= post.favorites.count %> いいね
@@ -14,6 +21,9 @@
     ♡<%= post.favorites.count %> いいね
    <% end %>
   <% end %>
-<% end %>
+ </td>
 
-<%= link_to '前のページに戻る', :back %>
+ </tr>
+<% end %>
+</tbody>
+</table>

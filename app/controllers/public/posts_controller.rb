@@ -31,9 +31,9 @@ class Public::PostsController < ApplicationController
   def destroy
     post = Post.find(params[:id])
     post.destroy
-    redirect_to 
+    redirect_to public_posts_path
   end
-  
+
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)

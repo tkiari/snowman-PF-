@@ -1,14 +1,6 @@
 <% if users.exists? %>
   <% users.each do |user| %>
-    <table>
-      <thead>
-        <tr>
-          <th></th>
-          <th>name</th>
-          <th>introduction</th>
-          <th></th>
-        </tr>
-      </thead>
+    <table class="table">
       <tbody>
         <tr>
           <td><%= image_tag user.get_profile_image(100,100) %></td>

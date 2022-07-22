@@ -18,8 +18,7 @@
           <h5 class="mb-4">ウィンタースポーツSNS</h5>
           <%= link_to "新規登録", new_user_registration_path, class: "btn btn-outline-light btn-lg m-2" %>
           <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-light btn-lg m-2" %>
-          <%= link_to "ゲストログイン", public_root_path ,class: "btn btn-outline-light btn-lg m-2" %>
-
+          <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post ,class: "btn btn-outline-light btn-lg m-2" %>
         </div>
       </div>
     </div>

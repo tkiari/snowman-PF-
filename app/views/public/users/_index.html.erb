@@ -8,11 +8,15 @@
            </td>
           <td><%= user.name %></td>
           <td>
+
+          <div id="follow_list">
           <% if current_user.following?(user) %>
-          <%= link_to "フォロー外す", public_user_relationships_path(user.id), method: :delete %>
+          <%= render "public/relationships/unfollow",user: user %>
           <% else %>
-          <%= link_to "フォローする", public_user_relationships_path(user.id), method: :post %>
+          <%= render "public/relationships/follow",user: user %>
           <% end %>
+          </div>
+
           </td>
           <td><%= link_to "Show", public_user_path(user.id) %></td>
           <td><%= link_to "チャットする", public_user_chat_path(current_user.id, user.id) %></td>

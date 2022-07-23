@@ -15,21 +15,11 @@
             </td>
             <td><%= link_to post.title, public_post_path(post.id) %></td>
             <td><%= post.opinion %></td>
-            
-              <% if post.favorited_by?(current_user) %>
-              <td>
-                <%= link_to public_post_favorites_path(post), method: :delete do %>
-                ♥<%= post.favorites.count %> いいね
-                <% end %>
+
+             <!--非同期通信いいね-->
+              <td id="favorite_buttons_<%= post.id %>">
+                <%= render "public/favorites/favorite", :post => post %><!--railsがpostを認識できなかったのでこの書き方にした(シンタクスエラー)-->
               </td>
-              <% else %>
-              <td>
-                <%= link_to public_post_favorites_path(post), method: :post do %>
-                ♡<%= post.favorites.count %> いいね
-                <% end %>
-              </td>
-              <% end %>
-              
           </tr>
           <% end %>
         </tbody>

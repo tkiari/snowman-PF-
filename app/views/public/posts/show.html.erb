@@ -3,39 +3,51 @@
    <%= render 'side', user: @user, post: @post1 %>
     <div class="col-md-8 offset-md-1">
           <h2>投稿詳細</h2>
+          <table class="table">
+           <tbody>
+            <tr>
+             <td><%= image_tag @post.get_post_image(100,100) %></td>
+             <td><%= @post.user.name %></td>
+             <td><%= @post.title %></td>
+             <td><%= @post.opinion %></td>
 
-            <%= image_tag @post.get_post_image(100,100) %>
-            <%= @post.user.name %>
-            <%= @post.title %>
-           <%= @post.opinion %>
-
+           <!--非同期通信いいね-->
+          <td id="favorite_buttons_<%= @post.id %>">
            <%= render "public/favorites/favorite", post: @post %>
-
+          </td>
+          <!--非同期通信コメント数-->
+          <td id="comments_count">
            <%= render "public/comments/count", post: @post %>
+          </td>
 
+             <td>
               <% if @post.user == current_user %>
                <%= link_to "Edit",edit_public_post_path(@post), class: "btn btn-sm btn-success" %>
               <% end %>
-
-
+             </td>
+             <td>
               <% if @post.user == current_user %>
                <%= link_to "Destroy",public_post_path(@post),method: :delete, class: "btn btn-sm btn-danger" %>
               <% end %>
+             </td>
+             </tr>
+            </tbody>
+            </table>
 
-
-
-            コメント
-            <%= render "public/comments/index",post: @post %>
-
-            <%= form_with model: [@post, @comment],url: public_post_comments_path(@post) do |f| %>
-
-            <%= f.text_area :comment, rows: '5', class: 'w-100 comment-textarea' %>
-            <%= f.submit 'コメントする' %>
-
-            <% end %>
-
-
-
+            <table class="table table-borderless">
+             <tr>
+              <!--非同期通信コメント-->
+              <td id="comments_index">
+               <%= render "public/comments/index",post: @post %>
+              </td>
+              <%= form_with model: [@post, @comment],url: public_post_comments_path(@post),local: false do |f| %>
+              <td>
+               <%= f.text_area :comment, rows: '5', class: 'w-100 comment-textarea' %>
+               <%= f.submit 'コメントする' %>
+              </td>
+              <% end %>
+             </tr>
+            </table>
     </div>
   </div>
 </div>

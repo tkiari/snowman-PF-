@@ -5,9 +5,10 @@ Rails.application.routes.draw do
  }
   namespace :admin do
     root to: "homes#top"
-    get 'posts/index'
-    get 'users/index'
+    resources :users, only: [:index, :destroy]
+    resources :posts, only: [:index, :destroy]
   end
+
   devise_for :users, skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'

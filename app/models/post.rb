@@ -2,15 +2,18 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
-  
+
+  validates :title,presence:true
+  validates :opinion,presence:true,length:{maximum:200}
+
   has_one_attached :image
   has_one_attached :post_image
-  
+
   #いいね機能
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
-  
+
   #画像
   def get_post_image(width,height)
     unless post_image.attached?
@@ -19,7 +22,7 @@ class Post < ApplicationRecord
     end
     post_image.variant(resize_to_limit: [width,height]).processed
   end
-  
+
   # 検索方法分岐
   def self.looks(search, word)
     if search == "perfect_match"
@@ -34,5 +37,5 @@ class Post < ApplicationRecord
       @post = Post.all
     end
   end
-  
+
 end

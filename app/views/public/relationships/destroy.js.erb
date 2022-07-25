@@ -1,1 +1,1 @@
-$("#follow_list").html("<%= j(render "public/relationships/unfollow") %>");
+$(".follow_list_<%= @user.id %>").html("<%= j(render "public/relationships/unfollow",user: @user) %>");

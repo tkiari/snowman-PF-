@@ -1,8 +1,8 @@
-
 <div class="pos-f-t">
   <div class="collapse" id="navbarToggleExternalContent">
     <div class="bg-dark p-4">
       <h5 class="text-white h4">Menu</h5>
+          <ul class="navbar-nav">
             <% if user_signed_in? %>
             <li class="nav-item mr-3">
               <%= link_to "マイページ", public_user_path(current_user), class: 'btn btn-sm btn-outline-secondary nav-link text-white' %>
@@ -40,6 +40,7 @@
               <%= link_to "ログイン", new_user_session_path, class: 'btn btn-sm btn-outline-secondary nav-link text-white' %>
             </li>
             <% end %>
+          </ul>
     </div>
   </div>
   <nav class="navbar navbar-dark bg-dark">

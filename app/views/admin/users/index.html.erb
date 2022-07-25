@@ -7,7 +7,7 @@
            </td>
           <td><%= user.name %></td>
           <td><%= link_to "削除",admin_user_path(user.id), method: :delete, class: "btn btn-sm btn-danger" %> </td>
-          <!--destroyアクションをしたときにアソシエーションのエラー-->
+          <!--アソシエーションのエラーが起きたがUser modelを見たら全角スペースが入っていたコードをしっかり確認！！-->
          </tr>
          <% end %>
         </tbody>

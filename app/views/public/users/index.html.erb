@@ -4,13 +4,13 @@
      <div class="col-md-8 offset-md-1">
 
      <ul class="nav nav-tabs">
-     <li class="active"><a class="nav-link" href="#users" data-toggle="tab">ユーザー一覧</a></li>
+     <li class="nav-item active"><a class="nav-link" href="#users" data-toggle="tab">ユーザー一覧</a></li>
      <li class="nav-item"><a class="nav-link" href="#follower" data-toggle="tab">フォロワー一覧</a></li>
      <li class="nav-item"><a class="nav-link" href="#follow" data-toggle="tab">フォロー一覧</a></li>
      <li class="nav-item"><a class="nav-link" href="#favorite" data-toggle="tab">いいね一覧</a></li>
      </ul>
      <div class="tab-content">
-     <div class="tab-pane fade" id="users">
+     <div class="tab-pane fade active show" id="users">
       <%= render "public/users/index", users: @users %>
      </div>
      <div class="tab-pane fade" id="follower">

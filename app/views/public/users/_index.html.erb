@@ -9,12 +9,8 @@
           <td><%= user.name %></td>
           <td>
 
-          <div id="follow_list">
-          <% if current_user.following?(user) %>
-          <%= render "public/relationships/unfollow",user: user %>
-          <% else %>
-          <%= render "public/relationships/follow",user: user %>
-          <% end %>
+          <div class="follow_list_<%= user.id %>">
+            <%= render partial: "public/relationships/follow", locals: {user: user} %>
           </div>
 
           </td>

@@ -17,7 +17,7 @@ class User < ApplicationRecord
   #１ユーザーが多くのchatを行うので、１対多。
   has_many :chats, dependent: :destroy
   #1ユーザはuser_roomを通してroomを保有している
-  has_many :rooms, through: :user_rooms　, dependent: :destroy
+  has_many :rooms, through: :user_rooms, dependent: :destroy
 
   has_many :posts, dependent: :destroy
   has_many :favorites, dependent: :destroy

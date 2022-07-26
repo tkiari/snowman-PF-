@@ -9,11 +9,11 @@
           <td>フォロー数: <%= user.followings.count %></td>
           <td>フォロワー数: <%= user.followers.count %></td>
           <td>
-
+            
           <div class="follow_list_<%= user.id %>">
             <%= render partial: "public/relationships/follow", locals: {user: user} %>
           </div>
-
+          
           </td>
         </tr>
       </tbody>

@@ -7,13 +7,15 @@
            <%= image_tag user.get_profile_image(100,100) %>
            </td>
           <td><%= user.name %></td>
-          <td>
 
+          <td>
+          <% unless user.id == current_user.id %>
           <div class="follow_list_<%= user.id %>">
             <%= render partial: "public/relationships/follow", locals: {user: user} %>
           </div>
-
+          <% end %>
           </td>
+
           <td><%= link_to "Show", public_user_path(user.id) %></td>
           <td><%= link_to "チャットする", public_user_chat_path(current_user.id, user.id) %></td>
          </tr>

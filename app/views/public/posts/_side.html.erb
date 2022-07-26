@@ -11,11 +11,13 @@
           <th><%= user.introduction %></th>
         </tr>
         <tr>
+        <% if user.name != "guestuser" %>
           <th>
         　<%= link_to edit_public_user_path(user),class: 'btn btn-outline-secondary btn-block' do %>
           <i class="fas fa-user-cog"></i>
           <% end %>
           </th>
+        <% end %>
         </tr>
         <tr>
           <td>フォロー数: <%= user.followings.count %></td>

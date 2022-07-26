@@ -34,20 +34,17 @@
             </tbody>
             </table>
 
-            <table class="table table-borderless">
-             <tr>
+            <table class="table table-borderless" id="comments_index">
               <!--非同期通信コメント-->
-              <td id="comments_index">
                <%= render "public/comments/index",post: @post %>
-              </td>
-              <%= form_with model: [@post, @comment],url: public_post_comments_path(@post),local: false do |f| %>
+            </table>
+
+            <%= form_with model: [@post, @comment],url: public_post_comments_path(@post),local: false do |f| %>
               <td>
                <%= f.text_area :comment, rows: '5', class: 'w-100 comment-textarea' %>
                <%= f.submit 'コメントする' %>
               </td>
-              <% end %>
-             </tr>
-            </table>
+            <% end %>
     </div>
   </div>
 </div>

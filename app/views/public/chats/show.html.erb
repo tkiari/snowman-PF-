@@ -8,7 +8,7 @@
         <th>投稿者名</th>
         <th>メッセージ</th>
       </tr>
-     <div class="message">
+   
       <% @chats.each do |chat| %>
         <tr>
           <% if chat.user_id == current_user.id %>
@@ -20,7 +20,6 @@
           <% end %>
         </tr>
       <% end %>
-     </div>
     </tbody>
 
   </table>

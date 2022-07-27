@@ -8,7 +8,7 @@
         <th>投稿者名</th>
         <th>メッセージ</th>
       </tr>
-   
+
       <% @chats.each do |chat| %>
         <tr>
           <% if chat.user_id == current_user.id %>
